@@ -1,5 +1,7 @@
 # Wallpaper Generator
 
+WallpaperGen is a simple Python script to generate wallpapers for my phone and laptop.
+
 ## Requirements
 
 To get started with the repository, ensure the following dependencies are installed on your system:
