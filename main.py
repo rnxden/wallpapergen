@@ -36,7 +36,7 @@ def iphone15():
 
             draw.circle((x, y), radius=dot_rad, fill=(dot_col, dot_col, dot_col))
 
-    image.save("iphone15.png")
+    image.save("dist/iphone15.png")
 
 
 def main():
