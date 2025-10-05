@@ -1,4 +1,5 @@
 from math import sqrt
+from random import randint
 
 from PIL import Image, ImageDraw
 
@@ -41,8 +42,47 @@ def iphone():
     image.save("dist/iphone.png")
 
 
+def macbook():
+    # This wallpaper is generated specifically for the M4 Macbook Air 15-inch (2025). Other models,
+    # similarly, would likely still work, with possible slight differences in display resolution.
+    width = 2880
+    height = 1864
+
+    image = Image.new("RGB", (width, height), (0, 0, 0))
+    draw = ImageDraw.Draw(image)
+
+    dots_x = 62
+    dots_y = 40
+
+    for i in range(1, dots_x):
+        for j in range(1, dots_y):
+            x = i * width / dots_x
+            y = j * height / dots_y
+
+            rel_x = width / 2 - x
+            rel_y = height / 2 - y
+
+            off_x = 0
+            off_y = 0
+            rad_x = 3500
+            rad_y = 1200
+
+            # This is the ellipse formula. The goal is to center and offset the ellipse, then
+            # calculate how far the point is from the center of the ellipse, using the increasing
+            # distance as the dot fade color.
+            dist = sqrt(((rel_x + off_x) / rad_x) ** 2 + ((rel_y + off_y) / rad_y) ** 2)
+
+            dot_rad = 2
+            dot_col = int(90 * max(0, 1 - dist)) + randint(-15, 15)
+
+            draw.circle((x, y), radius=dot_rad, fill=(dot_col, dot_col, dot_col))
+
+    image.save("dist/macbook.png")
+
+
 def main():
     iphone()
+    macbook()
 
 
 if __name__ == "__main__":
