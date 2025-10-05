@@ -3,7 +3,9 @@ from math import sqrt
 from PIL import Image, ImageDraw
 
 
-def iphone15():
+def iphone():
+    # This wallpaper is generated specifically for the iPhone 15. Other phones will likely still
+    # work, however they may have slight differences in display resolution.
     width = 1179
     height = 2556
 
@@ -36,11 +38,11 @@ def iphone15():
 
             draw.circle((x, y), radius=dot_rad, fill=(dot_col, dot_col, dot_col))
 
-    image.save("dist/iphone15.png")
+    image.save("dist/iphone.png")
 
 
 def main():
-    iphone15()
+    iphone()
 
 
 if __name__ == "__main__":
